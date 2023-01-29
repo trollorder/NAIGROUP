@@ -1,29 +1,22 @@
 nodes:
 - input.visual:
     source: Video Of People Walking.mp4
-- model.yolo:
+- model.efficientdet:
     detect: ["person"]
-- dabble.bbox_to_btm_midpoint
-- dabble.zone_count:
-    resolution: [720, 480]
-    zones: [
-      [[0.35,0], [0.65,0], [0.65,1], [0.35,1]],
-    ]
-- custom_nodes.dabble.filter_bbox:
-    zones: [
-      [[0.35,0], [0.65,0], [0.65,1], [0.35,1]],
-    ]
-- dabble.tracking
+- dabble.tracking:
+    tracking_type: "iou"
 - dabble.statistics:
     maximum: obj_attrs["ids"]
-- dabble.fps
+- dabble.bbox_count
 - draw.bbox
-- draw.zones
 - draw.tag:
     show: ["ids"]
 - draw.legend:
-    show: ["fps", "cum_max", "cum_min", "cum_avg", "zone_count"]
+    show: ["cum_max"]
 - output.screen
 - output.csv_writer:                 # add new output node for csv logging
-    file_path: C:\Users\Kelvin\Desktop\peekingduck\logs\new.csv                 # this is a folder name
-    stats_to_track: ['density_map', 'count']
+    file_path: C:\Users\Kelvin\Desktop\peekingduck\NAIGROUP\pose_estimation_demo\output\new.csv              # this is a folder name
+    stats_to_track: ['cum_max','count']
+
+
+
