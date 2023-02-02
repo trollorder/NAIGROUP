@@ -26,7 +26,7 @@ class LEDinstructor():
         rowentry = self.getlatestentry()
         instruction = 'None'
         for colour in thresholdtable.keys():
-            if rowentry[self.lednumber+1] >= thresholdtable[colour]:
+            if rowentry[self.lednumber+1] <= thresholdtable[colour]:
                 instruction = colour
             else:
                 pass
