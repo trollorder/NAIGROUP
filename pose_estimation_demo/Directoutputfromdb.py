@@ -1,5 +1,5 @@
 import sqlite3
-
+import time
 '''
 Motive: to convert realtime count data into instructions of the following 
 
@@ -24,15 +24,17 @@ class LEDinstructor():
     def processinstruction(self):
         thresholdtable = {'Red':20,'Orange':15,'Green':10}
         rowentry = self.getlatestentry()
-        instruction = 'None'
+        print(rowentry)
+        instruction = 'Red'
         for colour in thresholdtable.keys():
-            if rowentry[self.lednumber+1] <= thresholdtable[colour]:
+            if int(rowentry[self.lednumber+1]) <= thresholdtable[colour]:
                 instruction = colour
             else:
                 pass
         #get instructions
         return instruction
-                
-        
+    
 newled = LEDinstructor('count.db',1)
-print(newled.processinstruction())
+while True:
+    print(newled.processinstruction())
+    time.sleep(1) #1 second sample rate
