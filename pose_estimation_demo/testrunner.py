@@ -26,12 +26,11 @@ def main():
         nodes=[
             visual_node,
             yolo_node,
-            debug_node,
             bbox_node,
             fps_node,
             legend_node,
             screen_node,
-            media_writer_node,
+            media_writer_node
         ]
     )
     runner.run()
