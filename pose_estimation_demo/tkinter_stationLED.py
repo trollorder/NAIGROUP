@@ -1,7 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import sqlite3
-from Directoutputfromdb import LEDinstructor
+from LEDInstructor import LEDinstructor
 
 root= Tk()
 root.title("BEST GENERATOR YET")
@@ -18,7 +18,7 @@ canvas.pack(fill=BOTH, expand=1)
 
 image = canvas.create_image(0, 0, anchor=NW, image=image2)
 
-firstled=LEDinstructor("count.db",1)
+firstled=LEDinstructor("stationcount.db","traincount.db",1)
 #put in data here
 # kelvinser = "red"
 # kelvinser = "yellow"
