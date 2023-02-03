@@ -11,7 +11,7 @@ from src.custom_nodes.output import sqlite
 
 def main():
     debug_node = debug.Node(pkd_base_dir=Path.cwd() / "src" / "custom_nodes")
-    visual_node = visual.Node(source=str(Path.cwd() / "Video Of People Walking.mp4"))
+    visual_node = visual.Node(source=str(Path.cwd() / "Video Testing/Video 2.mp4"))
     effdetect_node = efficientdet.Node(detect=["person"])
     statistics_node = statistics.Node(maximum='obj_attrs["ids"]')
     tracking_node = tracking.Node(type = "iou")

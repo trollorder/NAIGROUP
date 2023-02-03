@@ -33,8 +33,7 @@ class LEDinstructor():
                 pass
         #get instructions
         return instruction
+
+
     
-newled = LEDinstructor('count.db',1)
-while True:
-    print(newled.processinstruction())
-    time.sleep(1) #1 second sample rate
+
