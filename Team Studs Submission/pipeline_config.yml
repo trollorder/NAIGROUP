@@ -1,0 +1,22 @@
+nodes:
+- input.visual:
+    source: Video Of People Walking.mp4
+- model.efficientdet:
+    detect: ["person"]
+- dabble.tracking:
+    tracking_type: "iou"
+- dabble.statistics:
+    maximum: obj_attrs["ids"]
+- dabble.bbox_count
+- draw.bbox
+- draw.tag:
+    show: ["ids"]
+- draw.legend:
+    show: ["cum_max"]
+- output.screen
+- output.csv_writer:                 # add new output node for csv logging
+    file_path: C:\Users\Kelvin\Desktop\peekingduck\NAIGROUP\pose_estimation_demo\output\new.csv              # this is a folder name
+    stats_to_track: ['cum_max','count']
+
+
+
